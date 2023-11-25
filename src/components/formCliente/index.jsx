@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export const FormCliente = () => {
   const [newClient, setNewClient] = React.useState({
@@ -21,8 +22,8 @@ export const FormCliente = () => {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <div>
+    <form onSubmit={(e) => handleSubmit(e)} className='form-cliente-container'>
+      <div className='form-cliente-content'>
         <label>Nome:</label>
         <input
           type="text"
@@ -32,7 +33,7 @@ export const FormCliente = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-cliente-content'>
         <label>CNPJ:</label>
         <input
           type="text"
@@ -42,7 +43,7 @@ export const FormCliente = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-cliente-content'>
         <label>Telefone:</label>
         <input
           type="text"
@@ -52,7 +53,7 @@ export const FormCliente = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-cliente-content'>
         <label>E-mail:</label>
         <input
           type="text"
@@ -62,7 +63,7 @@ export const FormCliente = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-cliente-content'>
         <label>Bairro:</label>
         <input
           type="text"
@@ -72,7 +73,7 @@ export const FormCliente = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-cliente-content'>
         <label>Logradouro:</label>
         <input
           type="text"
@@ -82,7 +83,7 @@ export const FormCliente = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <button type="submit">Cadastrar</button>
+      <button type="submit" className='form-cliente-btn'>Cadastrar</button>
     </form>
   )
 }

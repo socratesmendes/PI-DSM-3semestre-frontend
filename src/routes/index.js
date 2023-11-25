@@ -1,3 +1,5 @@
-export * from './Cadastro/index'
 export * from './Home/index'
-export * from './Vendas/index'
+export * from './Home/Cadastro/index'
+export * from './Home/Vendas/index'
+export * from './Home/Consulta/index'
+export * from './Home/LogoHome/index'

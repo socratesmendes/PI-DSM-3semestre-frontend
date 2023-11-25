@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export const FormTipo = () => {
     const [newTipo, setNewTipo] = React.useState({
@@ -16,8 +17,8 @@ export const FormTipo = () => {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <div>
+        <form onSubmit={(e) => handleSubmit(e)} className='form-tipo-container'>
+            <div className='form-tipo-content'>
                 <label>Nome:</label>
                 <input
                     type="text"
@@ -27,7 +28,7 @@ export const FormTipo = () => {
                     onChange={(e) => handleChangeInput(e)}
                 />
             </div>
-            <button type='submit'>Cadastrar</button>
+            <button type='submit' className='form-tipo-btn'>Cadastrar</button>
         </form>
     )
 }

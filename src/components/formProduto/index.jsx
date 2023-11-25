@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export const FormProduto = () => {
   const [newProduto, setNewProduto] = React.useState({
@@ -20,8 +21,8 @@ export const FormProduto = () => {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <div>
+    <form onSubmit={(e) => handleSubmit(e)} className='form-produto-container'>
+      <div className='form-produto-content'>
         <label>Nome:</label>
         <input
           type="text"
@@ -31,7 +32,7 @@ export const FormProduto = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-produto-content'>
         <label>Preço:</label>
         <input
           type="text"
@@ -41,7 +42,7 @@ export const FormProduto = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-produto-content'>
         <label>Classe:</label>
         <input
           type="text"
@@ -51,7 +52,7 @@ export const FormProduto = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-produto-content'>
         <label>Cor:</label>
         <input
           type="text"
@@ -61,7 +62,7 @@ export const FormProduto = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <div>
+      <div className='form-produto-content'>
         <label>Espessura:</label>
         <input
           type="text"
@@ -71,7 +72,7 @@ export const FormProduto = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <button type="submit">Cadastrar</button>
+      <button type="submit" className='form-produto-btn'>Cadastrar</button>
     </form>
   )
 }

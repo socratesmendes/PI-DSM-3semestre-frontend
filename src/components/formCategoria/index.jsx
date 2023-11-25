@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export const FormCategoria = () => {
   const [newCategoria, setNewCategoria] = React.useState({
@@ -16,8 +17,8 @@ export const FormCategoria = () => {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <div>
+    <form onSubmit={(e) => handleSubmit(e)} className='form-categoria-container'>
+      <div className='form-categoria-content'>
         <label>Nome:</label>
         <input
           type="text"
@@ -27,7 +28,7 @@ export const FormCategoria = () => {
           onChange={(e) => handleChangeInput(e)}
         />
       </div>
-      <button type="submit">Cadastrar</button>
+      <button type="submit" className='form-categoria-btn'>Cadastrar</button>
     </form>
   )
 }

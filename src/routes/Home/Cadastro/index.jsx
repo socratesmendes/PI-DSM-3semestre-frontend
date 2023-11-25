@@ -5,7 +5,8 @@ import {
   FormProduto,
   FormTipo,
   FormCategoria,
-} from '../../components'
+} from '../../../components'
+import './style.css'
 
 export const Cadastro = () => {
   const [showCliente, setShowCliente] = React.useState(false)
@@ -42,26 +43,27 @@ export const Cadastro = () => {
   }
 
   return (
-    <section>
-      <div>
-        <button onClick={() => showFormCliente()}>Cliente</button>
-        {showCliente && <FormCliente />}
-      </div>
+    <>
+      <nav className="form-nav">
+        <p>Cadastro</p>
+      </nav>
+      <section className="cadastro-section-container">
+        <div className="cadastro-btn">
+          <button onClick={() => showFormCliente()}>Cliente</button>
 
-      <div>
-        <button onClick={() => showFormProduto()}>Produto</button>
-        {showProduto && <FormProduto />}
-      </div>
+          <button onClick={() => showFormProduto()}>Produto</button>
 
-      <div>
-        <button onClick={() => showFormCategoria()}>Categoria</button>
-        {showCategoria && <FormCategoria />}
-      </div>
+          <button onClick={() => showFormCategoria()}>Categoria</button>
 
-      <div>
-        <button onClick={() => showFormTipo()}>Tipo</button>
-        {showTipo && <FormTipo />}
-      </div>
-    </section>
+          <button onClick={() => showFormTipo()}>Tipo</button>
+        </div>
+        <div className="cadastro-form-content">
+          {showCliente && <FormCliente />}
+          {showProduto && <FormProduto />}
+          {showCategoria && <FormCategoria />}
+          {showTipo && <FormTipo />}
+        </div>
+      </section>
+    </>
   )
 }
