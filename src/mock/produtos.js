@@ -12,4 +12,3 @@ export const produtos = [
     nome: 'couro 3',
   },
 ]
-

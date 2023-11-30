@@ -1,6 +1,7 @@
 import React from 'react'
 import { produtos } from '../../mock/produtos'
 import { clientes } from '../../mock/clientes'
+import axios from 'axios'
 import './style.css'
 
 export const FormVendas = () => {
@@ -10,16 +11,34 @@ export const FormVendas = () => {
   const [createNovaVenda, setCreateNovaVenda] = React.useState({
     produto: '',
     cliente: '',
-    preco: '',
     quantidade: '',
   })
 
   React.useEffect(() => {
-    const prods = produtos
-    setProduto(prods)
 
-    const clients = clientes
-    setClientes(clients)
+    const fetch1 = async (url, setProduto) =>{
+      try {
+        const produto = await axios.get(url);
+        setProduto(Object.values(produto.data));
+         
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      }
+    }
+
+    const fetch2 = async (url, setCliente) =>{
+      try {
+        const clientes = await axios.get(url);
+        setCliente(Object.values(clientes.data));
+         
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      }
+    }
+
+    fetch1('https://dot-ease.onrender.com/produto', setProduto);
+    fetch2('https://dot-ease.onrender.com/cliente', setClientes);
+
   }, [])
 
   const handleGetVenda = (e) => {
@@ -27,9 +46,40 @@ export const FormVendas = () => {
     setCreateNovaVenda({ ...createNovaVenda, [name]: value })
   }
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDadosDoFormulario((prevDados) => ({
+      ...prevDados,
+      [name]: value,
+    }));
+  };
+
+
+  const handleSubmit = async (event) =>{
+    event.preventDefault();
+
+    const struct = {
+      idProduto, 
+      idCompra,
+      qntd
+    }
+
+    const url = 'https://dot-ease.onrender.com/cliente/venda';
+
+    const resp = await fetch(url, {
+      method: 'POST',
+      Headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(createNovaVenda)
+      })
+  }
+
+
   const handleSubmitVenda = (e) => {
     e.preventDefault()
     console.log(createNovaVenda)
+    alert('Venda cadastrada com sucesso!')
   }
 
   return (
@@ -65,18 +115,6 @@ export const FormVendas = () => {
             <option>Não há clientes</option>
           )}
         </select>
-      </div>
-
-      <div className="form-vendas-content">
-        <label>Preço: </label>
-        <input
-          type="text"
-          name="preco"
-          id="preco"
-          placeholder="Insira o preço"
-          value={createNovaVenda.preco}
-          onChange={(e) => handleGetVenda(e)}
-        />
       </div>
 
       <div className="form-vendas-content">

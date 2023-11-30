@@ -25,7 +25,7 @@ export const Home = () => {
             </li>
             <li>
               <PiListMagnifyingGlassBold id="icon-size" />
-              <a href="">CONSULTA</a>
+              <Link to="/consulta">CONSULTA</Link>
             </li>
           </ul>
         </div>

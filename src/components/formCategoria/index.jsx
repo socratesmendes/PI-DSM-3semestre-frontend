@@ -14,6 +14,7 @@ export const FormCategoria = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(newCategoria)
+    alert('Categoria cadastrada com sucesso!')
   }
 
   return (

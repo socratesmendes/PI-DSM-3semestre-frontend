@@ -14,6 +14,7 @@ export const FormTipo = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(newTipo)
+        alert('Tipo cadastrado com sucesso!')
     }
 
     return (

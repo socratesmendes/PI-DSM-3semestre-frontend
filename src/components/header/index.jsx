@@ -16,7 +16,7 @@ export const Header = () => {
           <CgMail />
           <div>
             <PiUserBold />
-            <p>Usuário</p>
+            <p>Sócrates</p>
           </div>
         </div>
       </nav>

@@ -18,6 +18,7 @@ export const FormProduto = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(newProduto)
+    alert('Produto cadastrado com sucesso!')
   }
 
   return (

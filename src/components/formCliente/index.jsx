@@ -19,6 +19,7 @@ export const FormCliente = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(newClient)
+    alert('Cliente cadastrada com sucesso!')
   }
 
   return (
